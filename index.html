@@ -45,7 +45,7 @@
         }
     </script>
     <style>
-        img { image-rendering: pixelated; }
+        img { image-rendering: auto; }
         
         /* Smooth Scrolling */
         html { scroll-behavior: smooth; }
@@ -185,6 +185,7 @@
 
     <header class="relative w-full h-auto md:h-[450px] border-4 border-black bg-[#81e6d9] shadow-retro-lg mb-12 overflow-hidden flex flex-col md:block reveal-on-scroll group">
         <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(black 1px, transparent 1px); background-size: 8px 8px;"></div>
+        
         <div class="relative z-10 p-6 md:p-12 w-full md:w-2/3">
             <div class="text-pink-500 font-bold text-xl md:text-2xl mb-2 flex items-center gap-2 font-header animate-pulse">
                 <span>MIKU.EXE</span> <i class="fa-solid fa-bolt"></i>
@@ -204,8 +205,11 @@
                 <a href="#" class="jelly-hover bg-black text-white px-4 py-1 hover:bg-miku hover:text-black border-2 border-transparent transition-colors">READ MORE_</a>
             </div>
         </div>
-        <div class="relative md:absolute md:right-0 md:bottom-0 w-full md:w-auto h-[300px] md:h-[110%] flex justify-center md:block mt-auto pointer-events-none">
-            <img src="https://upload.wikimedia.org/wikipedia/en/6/62/Hatsune_Miku_V4X.png" alt="Hatsune Miku" class="animate-float h-full object-contain drop-shadow-[8px_8px_0_rgba(0,0,0,0.2)] md:mr-8 pb-0 md:pb-0 translate-y-4 md:translate-y-0" style="image-rendering: pixelated;">
+
+        <div class="relative md:absolute md:right-[-20px] md:bottom-[-30px] w-full md:w-[550px] h-[400px] md:h-[115%] flex justify-center md:block mt-auto pointer-events-none z-20">
+            <img src="file:///C:/Users/Salma/Desktop/mikusite/4c665644-a04d-4470-9ec3-58d2bf6e8526.png" 
+                 alt="Hatsune Miku Heart" 
+                 class="animate-float h-full w-full object-contain drop-shadow-[15px_15px_0_rgba(0,0,0,0.1)]">
         </div>
     </header>
 
@@ -233,8 +237,8 @@
                 <div class="flex flex-col gap-3 flex-grow order-2 sm:order-1">
                     
                     <a href="https://www.google.com/search?q=Hatsune+miku+is+mine" target="_blank" class="jelly-hover bg-miku-light border-2 border-black p-2 px-4 shadow-retro-sm flex items-center gap-3 cursor-pointer group">
-                        <i class="fa-solid fa-magnifying-glass group-hover:rotate-12 transition-transform"></i>
-                        <span class="truncate">Hatsune miku is mine</span>
+                        <i class="fa-solid fa-magnifying-glass group-hover:rotate-12 transition-transform text-black"></i>
+                        <span class="truncate text-black">Hatsune miku is mine</span>
                     </a>
 
                     <a href="https://www.google.com/search?q=Hatsune+miku+icon" target="_blank" class="jelly-hover bg-miku border-2 border-black p-2 px-4 shadow-retro-sm flex items-center gap-3 text-white cursor-pointer group">
@@ -254,17 +258,11 @@
 
                 </div>
 
-                <div class="flex flex-row sm:flex-col gap-4 w-full sm:w-32 order-1 sm:order-2 overflow-x-auto sm:overflow-visible pb-2 sm:pb-0">
+                <div class="flex flex-row sm:flex-col gap-4 w-full sm:w-32 order-1 sm:order-2">
                     <div class="min-w-[100px] sm:min-w-0 flex-1 bg-white border-2 border-black shadow-retro relative h-28 flex items-center justify-center jelly-hover">
-                        <button class="absolute -top-3 -right-3 bg-red-500 border-2 border-black w-8 h-8 flex items-center justify-center text-white hover:bg-red-600 z-10 hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
                         <img src="https://sticker-collection.com/stickers/plain/HatsuneMikuChibi/512/32d03957-c626-4444-937b-91d64c784fae.png" class="w-20 h-20 object-contain">
                     </div>
                     <div class="min-w-[100px] sm:min-w-0 flex-1 bg-white border-2 border-black shadow-retro relative h-28 flex items-center justify-center jelly-hover">
-                        <button class="absolute -top-3 -right-3 bg-red-500 border-2 border-black w-8 h-8 flex items-center justify-center text-white hover:bg-red-600 z-10 hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
                         <img src="https://sticker-collection.com/stickers/plain/HatsuneMikuChibi/512/03582098-9642-45e0-811c-c27633e6ce67.png" class="w-20 h-20 object-contain">
                     </div>
                 </div>
@@ -306,66 +304,34 @@
     <div class="h-10"></div>
 
     <script>
-        // --- AUDIO CONTROLLER ---
         const audio = document.getElementById('bg-music');
         const overlay = document.getElementById('start-overlay');
         const musicControls = document.getElementById('music-controls');
         const musicIcon = document.getElementById('music-icon');
         let isPlaying = false;
 
-        // Function called when the user clicks "START SYSTEM"
         function startExperience() {
-            // 1. Try to play audio
-            audio.volume = 0.5; // Set volume to 50%
+            audio.volume = 0.5;
             audio.play().then(() => {
                 isPlaying = true;
                 updateIcon();
-            }).catch(error => {
-                console.log("Playback failed:", error);
-            });
+            }).catch(error => console.log("Playback failed:", error));
 
-            // 2. Hide the overlay
             overlay.style.opacity = '0';
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 700);
-
-            // 3. Show music controls in bottom right
+            setTimeout(() => { overlay.style.display = 'none'; }, 700);
             musicControls.classList.remove('translate-y-32');
         }
 
-        // Toggle mute/play
         function toggleMusic() {
-            if (isPlaying) {
-                audio.pause();
-                isPlaying = false;
-            } else {
-                audio.play();
-                isPlaying = true;
-            }
+            if (isPlaying) { audio.pause(); isPlaying = false; } 
+            else { audio.play(); isPlaying = true; }
             updateIcon();
         }
 
         function updateIcon() {
-            if (isPlaying) {
-                musicIcon.className = 'fa-solid fa-volume-high';
-                // Make bars dance
-                document.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'running');
-            } else {
-                musicIcon.className = 'fa-solid fa-volume-xmark';
-                // Stop bars
-                document.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
-            }
+            musicIcon.className = isPlaying ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
+            document.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = isPlaying ? 'running' : 'paused');
         }
-
-
-        // --- EXISTING CODE BELOW ---
-
-        // 1. SCROLL OBSERVER
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -374,47 +340,30 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
 
-        // 2. BACKGROUND BUBBLE GENERATOR
         function createBubble() {
             const bubble = document.createElement('div');
             bubble.classList.add('bubble');
-            
             const size = Math.random() * 40 + 10 + 'px';
-            bubble.style.width = size;
-            bubble.style.height = size;
+            bubble.style.width = size; bubble.style.height = size;
             bubble.style.left = Math.random() * 100 + 'vw';
             bubble.style.animationDuration = Math.random() * 10 + 10 + 's';
-            
             document.getElementById('bubble-container').appendChild(bubble);
-
-            setTimeout(() => {
-                bubble.remove();
-            }, 20000);
+            setTimeout(() => bubble.remove(), 20000);
         }
-
         setInterval(createBubble, 500);
 
-        // 3. MOUSE TRAIL EFFECT
         document.addEventListener('mousemove', (e) => {
             if(Math.random() > 0.3) return; 
-
             const dot = document.createElement('div');
             dot.classList.add('trail-dot');
-            dot.style.left = e.pageX + 'px';
-            dot.style.top = e.pageY + 'px';
+            dot.style.left = e.pageX + 'px'; dot.style.top = e.pageY + 'px';
             document.body.appendChild(dot);
-
-            setTimeout(() => {
-                dot.remove();
-            }, 500);
+            setTimeout(() => dot.remove(), 500);
         });
     </script>
-
 </body>
 </html>
