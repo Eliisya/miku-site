@@ -46,11 +46,7 @@
     </script>
     <style>
         img { image-rendering: auto; }
-        
-        /* Smooth Scrolling */
         html { scroll-behavior: smooth; }
-
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 10px; background: #fff; border-left: 2px solid black; }
         ::-webkit-scrollbar-thumb { background: #39c5bb; border: 2px solid black; }
 
@@ -59,7 +55,6 @@
             overflow-x: hidden;
         }
 
-        /* --- THE JELLY EFFECT --- */
         .jelly-hover { transition: transform 0.2s; }
         .jelly-hover:hover { animation: jelly 0.5s; }
         @keyframes jelly {
@@ -69,7 +64,6 @@
             75% { transform: scale(0.98, 1.02); }
         }
 
-        /* --- SCROLL REVEAL ANIMATIONS --- */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(50px) scale(0.95);
@@ -80,7 +74,6 @@
             transform: translateY(0) scale(1);
         }
 
-        /* --- BACKGROUND BUBBLES --- */
         .bubble {
             position: fixed;
             background: rgba(57, 197, 187, 0.1);
@@ -96,7 +89,6 @@
             100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
 
-        /* --- MOUSE TRAIL --- */
         .trail-dot {
             position: absolute;
             width: 8px;
@@ -112,7 +104,6 @@
             100% { transform: scale(0); opacity: 0; }
         }
 
-        /* --- AUDIO VISUALIZER BARS --- */
         .bar {
             width: 6px;
             background: black;
@@ -136,7 +127,7 @@
             <button onclick="startExperience()" class="bg-white border-4 border-black px-8 py-4 text-2xl font-bold shadow-retro hover:scale-110 transition-transform flex items-center gap-3 mx-auto jelly-hover cursor-pointer">
                 <i class="fa-solid fa-play"></i> START SYSTEM
             </button>
-            </div>
+        </div>
     </div>
 
     <div id="music-controls" class="fixed bottom-4 right-4 z-50 transition-transform translate-y-32 duration-500">
@@ -183,15 +174,15 @@
         </div>
     </nav>
 
-    <header class="relative w-full h-auto md:h-[450px] border-4 border-black bg-[#81e6d9] shadow-retro-lg mb-12 overflow-hidden flex flex-col md:block reveal-on-scroll group">
+    <header class="relative w-full h-auto md:h-[450px] border-4 border-black bg-[#81e6d9] shadow-retro-lg mb-12 overflow-hidden flex flex-col md:block reveal-on-scroll">
         <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(black 1px, transparent 1px); background-size: 8px 8px;"></div>
         
         <div class="relative z-10 p-6 md:p-12 w-full md:w-2/3">
             <div class="text-pink-500 font-bold text-xl md:text-2xl mb-2 flex items-center gap-2 font-header animate-pulse">
                 <span>MIKU.EXE</span> <i class="fa-solid fa-bolt"></i>
             </div>
-            <h1 class="jelly-hover cursor-default text-5xl xs:text-6xl md:text-8xl font-header text-black mb-6 leading-none drop-shadow-[4px_4px_0_rgba(255,255,255,1)]">MIKU</h1>
-            <div class="bg-white border-2 border-black p-4 mb-6 shadow-retro-sm max-w-md jelly-hover transform transition-transform">
+            <h1 class="cursor-default text-5xl xs:text-6xl md:text-8xl font-header text-black mb-6 leading-none drop-shadow-[4px_4px_0_rgba(255,255,255,1)]">MIKU</h1>
+            <div class="bg-white border-2 border-black p-4 mb-6 shadow-retro-sm max-w-md transform transition-transform">
                 <p class="text-gray-900 text-lg md:text-2xl leading-none font-mono">
                     <span class="text-miku-dark">></span> STATUS: <span class="text-green-600">Bubbly...</span>
                 </p>
@@ -202,19 +193,18 @@
                     <div class="w-3 h-3 md:w-4 md:h-4 border-2 border-black animate-bounce delay-150"></div>
                     <div class="w-3 h-3 md:w-4 md:h-4 border-2 border-black animate-bounce delay-300"></div>
                 </div>
-                <a href="#" class="jelly-hover bg-black text-white px-4 py-1 hover:bg-miku hover:text-black border-2 border-transparent transition-colors">READ MORE_</a>
+                <a href="#" class="bg-black text-white px-4 py-1 hover:bg-miku hover:text-black border-2 border-transparent transition-colors">READ MORE_</a>
             </div>
         </div>
 
         <div class="relative md:absolute md:right-[-20px] md:bottom-[-30px] w-full md:w-[550px] h-[400px] md:h-[115%] flex justify-center md:block mt-auto pointer-events-none z-20">
-            <img src="https://github.com/b3411a3b-52aa-497b-a63b-599ed719b515" 
-                 alt="Hatsune Miku Heart" 
+            <img src="miku.png" 
+                 alt="Hatsune Miku" 
                  class="animate-float h-full w-full object-contain drop-shadow-[15px_15px_0_rgba(0,0,0,0.1)]">
         </div>
     </header>
 
     <main class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-        
         <section class="lg:col-span-3 flex flex-col gap-4 reveal-on-scroll">
             <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-2 border-b-4 border-black w-max px-2">ARTWORK ></h2>
             <div class="flex gap-4 h-64 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
@@ -232,32 +222,25 @@
 
         <section class="lg:col-span-5 reveal-on-scroll" style="transition-delay: 100ms;">
             <h2 class="text-2xl md:text-3xl font-bold mb-4 border-b-4 border-black w-max px-2">SEARCH_LOG</h2>
-            
             <div class="flex flex-col sm:flex-row gap-6">
                 <div class="flex flex-col gap-3 flex-grow order-2 sm:order-1">
-                    
                     <a href="https://www.google.com/search?q=Hatsune+miku+is+mine" target="_blank" class="jelly-hover bg-miku-light border-2 border-black p-2 px-4 shadow-retro-sm flex items-center gap-3 cursor-pointer group">
                         <i class="fa-solid fa-magnifying-glass group-hover:rotate-12 transition-transform text-black"></i>
                         <span class="truncate text-black">Hatsune miku is mine</span>
                     </a>
-
                     <a href="https://www.google.com/search?q=Hatsune+miku+icon" target="_blank" class="jelly-hover bg-miku border-2 border-black p-2 px-4 shadow-retro-sm flex items-center gap-3 text-white cursor-pointer group">
                         <i class="fa-solid fa-magnifying-glass group-hover:rotate-12 transition-transform"></i>
                         <span class="truncate">Hatsune miku icon</span>
                     </a>
-
                     <a href="https://www.google.com/search?q=Miku+expo+2025" target="_blank" class="jelly-hover bg-slate-600 border-2 border-black p-2 px-4 shadow-retro-sm flex items-center gap-3 text-white cursor-pointer group">
                         <i class="fa-solid fa-magnifying-glass group-hover:rotate-12 transition-transform"></i>
                         <span class="truncate">Miku expo 2025</span>
                     </a>
-
                     <a href="https://www.google.com/search?q=Hatsune+miku+cosplay" target="_blank" class="jelly-hover bg-slate-700 border-2 border-black p-2 px-4 shadow-retro-sm flex items-center gap-3 text-white cursor-pointer group">
                         <i class="fa-solid fa-magnifying-glass group-hover:rotate-12 transition-transform"></i>
                         <span class="truncate">Hatsune miku cosplay</span>
                     </a>
-
                 </div>
-
                 <div class="flex flex-row sm:flex-col gap-4 w-full sm:w-32 order-1 sm:order-2">
                     <div class="min-w-[100px] sm:min-w-0 flex-1 bg-white border-2 border-black shadow-retro relative h-28 flex items-center justify-center jelly-hover">
                         <img src="https://sticker-collection.com/stickers/plain/HatsuneMikuChibi/512/32d03957-c626-4444-937b-91d64c784fae.png" class="w-20 h-20 object-contain">
@@ -277,7 +260,6 @@
                     <p class="text-base md:text-lg text-gray-500 leading-tight">Miku is always number 1</p>
                 </div>
             </div>
-
             <div class="jelly-hover bg-white border-2 border-black p-4 flex gap-4 items-center shadow-retro cursor-pointer group">
                 <div class="w-12 h-12 border-2 border-black bg-miku-light flex items-center justify-center text-black shrink-0 group-hover:rotate-12 transition-transform">
                     <i class="fa-solid fa-microphone text-2xl"></i>
@@ -287,7 +269,6 @@
                     <p class="text-base md:text-lg text-gray-500 leading-tight">Hatsune Miku!</p>
                 </div>
             </div>
-
             <div class="jelly-hover bg-white border-2 border-black p-4 flex gap-4 items-center shadow-retro cursor-pointer group">
                 <div class="w-12 h-12 flex items-center justify-center text-black bg-yellow-300 border-2 border-black shrink-0 group-hover:rotate-12 transition-transform">
                     <i class="fa-solid fa-music text-2xl"></i>
@@ -298,7 +279,6 @@
                 </div>
             </div>
         </section>
-
     </main>
     
     <div class="h-10"></div>
@@ -367,5 +347,3 @@
     </script>
 </body>
 </html>
-
-
